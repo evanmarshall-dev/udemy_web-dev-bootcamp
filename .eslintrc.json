@@ -21,6 +21,7 @@
     // Delete these "no" rules in production.
     "no-console": "off",
     "no-alert": "off",
-    "no-prompt": "off"
+    "no-prompt": "off",
+    "no-constant-condition": "off"
   }
 }

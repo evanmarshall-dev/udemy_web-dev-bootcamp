@@ -36,4 +36,25 @@ if (dayOfWeek === 'monday') {
   console.log('Meh, just another day...');
 }
 
-// Nesting conditionals inside other conditionals
+// Nesting conditionals inside other conditionals.
+// Example, Password conditions.
+const password = prompt('Please enter a new password');
+// condition 1 = password must be 6+ characters.
+if (password.length >= 6) {
+  // console.log('Long enough password.');
+  if (password.indexOf(' ') === -1) {
+    // console.log('Good job, no spaces.');
+    console.log('Password is valid.');
+  } else {
+    console.log('Password cannot contain spaces.');
+  }
+} else {
+  console.log('Password too short. Must be 6+ characters.');
+}
+// condition 2 = password cannot include spaces. Index of " " a space is -1 so that is what we want.
+// if (password.indexOf(' ') === -1) {
+//   console.log('Good job, no spaces.');
+// } else {
+//   console.log('Password cannot contain spaces.');
+// }
+// You do not want to have two separate messages to the user so you would nest the conditionals.
