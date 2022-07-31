@@ -22,6 +22,7 @@
     "no-console": "off",
     "no-alert": "off",
     "no-prompt": "off",
-    "no-constant-condition": "off"
+    "no-constant-condition": "off",
+    "no-plusplus": "off"
   }
 }
