@@ -5,24 +5,16 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb",
-    "plugin:react-hooks/recommended",
-    "prettier"
+    "google",
+    "plugin:prettier/recommended"
   ],
+  "overrides": [],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "prettier"],
   "rules": {
-    // Delete these "no" rules in production.
-    "no-console": "off",
-    "no-alert": "off",
-    "no-prompt": "off",
-    "no-constant-condition": "off",
-    "no-plusplus": "off"
+    "react/react-in-jsx-scope": ["off"]
   }
 }
