@@ -14,24 +14,24 @@ LOGIC
 // Switch statement example.
 switch (day) {
   case 1:
-    console.log('Monday');
+    console.log("Monday");
     break;
   case 2:
-    console.log('Tuesday');
+    console.log("Tuesday");
     break;
   case 3:
-    console.log('Wednesday');
+    console.log("Wednesday");
     break;
   case 4:
-    console.log('Thursday');
+    console.log("Thursday");
     break;
   case 5:
-    console.log('Friday');
+    console.log("Friday");
     break;
   case 6:
   case 7:
-    console.log('The Weekend');
+    console.log("The Weekend");
     break;
   default:
-    console.log('Uh-oh, something broke...');
+    console.log("Uh-oh, something broke...");
 }

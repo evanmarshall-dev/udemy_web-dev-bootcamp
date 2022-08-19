@@ -1,6 +1,6 @@
 //* Sample concat Method.
-const arrayOne = ['a', 'b', 'c'];
-const arrayTwo = ['d', 'e', 'f'];
+const arrayOne = ["a", "b", "c"];
+const arrayTwo = ["d", "e", "f"];
 const arrayThree = arrayOne.concat(arrayTwo);
 console.log(arrayThree);
 // Check to see if array changed.
@@ -8,31 +8,31 @@ console.log(arrayOne);
 
 //* Sample includes Method.
 // Boolean so returns true or false.
-console.log(arrayOne.includes('10'));
+console.log(arrayOne.includes("10"));
 
 //* Sample IndexOf Method.
 // If it doesn't exist in array it will return -1.
 // If multiples of the same it only returns first instances index.
-console.log(arrayTwo.indexOf('d'));
+console.log(arrayTwo.indexOf("d"));
 
 //* Sample reverse Method.
 // Unlike the rest, it is a destructive method so it CHANGES the original.
 const reversed = arrayThree.reverse();
-console.log('reversed:', reversed);
+console.log("reversed:", reversed);
 // Check to see if array changed.
 console.log(arrayThree);
 
 //* Sample slice Method.
 const milkyWayPlanets = [
-  'Earth',
-  'Uranus',
-  'Saturn',
-  'Neptune',
-  'Pluto',
-  'Mercury',
-  'Venus',
-  'Mars',
-  'Jupiter',
+  "Earth",
+  "Uranus",
+  "Saturn",
+  "Neptune",
+  "Pluto",
+  "Mercury",
+  "Venus",
+  "Mars",
+  "Jupiter",
 ];
 // Below goes from index of 2 until end or array.
 // console.log(milkyWayPlanets.slice(2));
@@ -46,27 +46,27 @@ console.log(milkyWayPlanets.slice(-3));
 // Not required to add an item and you can add multiple items separated by commas.
 // Splice is destructive to original array.
 const months = [
-  'January',
-  'Fabury',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  "January",
+  "Fabury",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 // Below inserts at index 1.
-months.splice(1, 1, 'February');
+months.splice(1, 1, "February");
 console.log(months);
 
 //* Sample sort Method.
 // Default sort converts all to strings and alphabetical.
 // Struggles with number sorting, therefore needs a function.
-const fruits = ['Apple', 'Pear', 'Orange', 'Watermelon'];
+const fruits = ["Apple", "Pear", "Orange", "Watermelon"];
 fruits.sort();
 console.log(fruits);
 
@@ -85,7 +85,7 @@ console.log(fruits);
 //* Sample Array Nesting.
 // You can chain together arrays to return content from a nested one.
 const nest = [
-  ['X', 'O', 'X'],
-  ['O', 'O', 'X'],
+  ["X", "O", "X"],
+  ["O", "O", "X"],
 ];
 console.log(nest[0][1]);

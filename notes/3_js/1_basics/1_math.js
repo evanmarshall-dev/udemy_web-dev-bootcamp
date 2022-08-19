@@ -1,4 +1,4 @@
-console.log('Hello');
+console.log("Hello");
 console.log(Math.PI);
 console.log(Math.floor(23.933));
 console.log(Math.E);

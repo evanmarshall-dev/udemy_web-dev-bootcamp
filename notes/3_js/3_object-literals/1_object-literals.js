@@ -1,8 +1,8 @@
 //* Example Object Literal.
 // Each Object literal is made up of key:value pairs.
 const person = {
-  firstName: 'Evan',
-  lastName: 'Marshall',
+  firstName: "Evan",
+  lastName: "Marshall",
 };
 console.log(person);
 // Values can be strings, numbers, arrays and booleans.
@@ -24,14 +24,14 @@ console.log(midTerms);
 midTerms.Thomas = 79;
 console.log(midTerms);
 // If I want to add someone to the object.
-midTerms.Ezra = 'B+';
+midTerms.Ezra = "B+";
 console.log(midTerms);
 
 //* Nesting Arrays inside Object Literal.
 // An array can consist of a bunch of object literals or an object literal can contain arrays or object literal can contain nested object literals.
 //* Sample object literals inside an array.
 const comments = [
-  { username: 'Tammy', text: 'lololol', votes: 9 },
-  { username: 'FishBoi', text: 'glub glub', votes: 12387 },
+  { username: "Tammy", text: "lololol", votes: 9 },
+  { username: "FishBoi", text: "glub glub", votes: 12387 },
 ];
 console.log(comments[1].text);

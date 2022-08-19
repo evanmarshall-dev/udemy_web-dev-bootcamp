@@ -9,9 +9,9 @@ for (let i = 1; i <= 10; i += 1) {
 // Nested loops are commonly used when iterating nested arrays.
 //* Sample.
 const seatingChart = [
-  ['Kristen', 'Erik', 'Namita'],
-  ['Geoffrey', 'Juanita', 'Antonio', 'Kevin'],
-  ['Yuma', 'Sakura', 'Jack', 'Erika'],
+  ["Kristen", "Erik", "Namita"],
+  ["Geoffrey", "Juanita", "Antonio", "Kevin"],
+  ["Yuma", "Sakura", "Jack", "Erika"],
 ];
 
 for (let i = 0; i < seatingChart.length; i += 1) {
