@@ -1,5 +1,5 @@
 let input = prompt("Hey, stop copying me!");
-while (true) {
+while (input === 0) {
   input = prompt(input);
   if (input.toLowerCase() === "Stop copying me") {
     break;
