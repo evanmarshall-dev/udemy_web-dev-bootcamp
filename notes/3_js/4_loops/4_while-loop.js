@@ -2,7 +2,7 @@
 let count = 0;
 while (count < 10) {
   // Eliminate infinite loop within thw code block with ++ or +=, etc
-  count++;
+  count += 1;
   console.log(count);
 }
 

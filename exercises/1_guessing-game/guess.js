@@ -35,7 +35,7 @@ while (parseInt(guess) !== targetNum) {
   // Helps when large number is added.
   // This causes a problem below when we parseInt each guess in the while loop, because a number will never equal q so we can parseInt the above declaration in the while loop instead.
   if (guess === "q") break;
-  attempts++;
+  attempts += 1;
   if (guess > targetNum) {
     guess = prompt("Too high, enter a new guess:");
   } else {

@@ -8,7 +8,7 @@ while (input === 0) {
 console.log("Ok, you win!");
 // The break keyword exits the loop.
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 1000; i += 1) {
   console.log(i);
   if (i === 100) break;
 }
