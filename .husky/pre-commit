@@ -1,4 +1,23 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn lint
+echo '🏗️👷 Styling, testing and building your project before committing'
+
+# Check Prettier standards
+yarn pretty:check ||
+(
+  echo '🤢🤮🤢🤮 Its F**KING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
+  Prettier Check Failed. Run yarn pretty:write, add changes and try commit again.';
+  false;
+)
+
+# Check ESLint Standards
+yarn lint ||
+(
+  echo '😤🏀👋😤 Get that weak s**t out of here! 😤🏀👋😤 
+  ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+  false; 
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'

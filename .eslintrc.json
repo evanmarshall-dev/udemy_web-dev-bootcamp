@@ -4,9 +4,8 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
     "plugin:react/recommended",
-    "google",
+    "airbnb",
     "plugin:prettier/recommended"
   ],
   "overrides": [],
@@ -19,6 +18,10 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": ["off"]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-uses-react": ["off"],
+    "react/react-in-jsx-scope": ["off"],
+    "react/jsx-props-no-spreading": ["off"],
+    "react/prop-types": ["off"]
   }
 }
