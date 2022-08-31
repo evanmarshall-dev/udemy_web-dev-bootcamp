@@ -11,3 +11,10 @@ Storage of the TODOs will be an array
 Listing the TODOs will iterate over values in array, print out and with index
 Delete will use index and splice method
 */
+
+// alert("Testing Connection");
+// STEP #1.
+let input = prompt("What would you like to do?");
+while (input !== "quit") {
+  input = prompt("What would you like to do?");
+}
