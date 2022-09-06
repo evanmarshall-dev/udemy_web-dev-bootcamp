@@ -13,8 +13,10 @@ Delete will use index and splice method
 */
 
 // alert("Testing Connection");
-// STEP #1.
+// STEP #1. Setting up quit scenario.
 let input = prompt("What would you like to do?");
-while (input !== "quit") {
+// const todos = ["Collect chicken eggs", "Clean litter box"];
+while (input !== "quit" && input !== "q") {
   input = prompt("What would you like to do?");
 }
+console.log("You quit the app");
