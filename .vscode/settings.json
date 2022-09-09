@@ -9,7 +9,8 @@
     "Namita",
     "peerdeps",
     "plusplus",
-    "Sakura"
+    "Sakura",
+    "todos"
   ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#fa1b49",
@@ -28,6 +29,7 @@
     "titleBar.activeBackground": "#dd0531",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#dd053199",
-    "titleBar.inactiveForeground": "#e7e7e799"
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "commandCenter.border": "#e7e7e799"
   }
 }
