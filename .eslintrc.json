@@ -10,5 +10,12 @@
     "sourceType": "module"
   },
   "plugins": ["prettier"],
-  "rules": {}
+  "rules": {
+    "no-console": "off",
+    "no-alert": "off",
+    "radix": "off",
+    "no-restricted-syntax": "off",
+    "func-names": "off",
+    "guard-for-in": "off"
+  }
 }
