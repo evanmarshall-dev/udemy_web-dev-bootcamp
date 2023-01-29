@@ -1,6 +1,7 @@
-.next
-next-env.d.ts
+.git
+.husky
+.vscode
+.yarn
 node_modules
+.yarnrc.yml
 yarn.lock
-package-lock.json
-public
