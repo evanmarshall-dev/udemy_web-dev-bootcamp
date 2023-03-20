@@ -36,12 +36,12 @@ const user = {
 
 // Instead it can be destructured.
 // Order doesn't matter like arrays, but there needs to be a key in the object to match.
-const { email, firstName, lastName, city, bio } = user;
-console.log(email);
-console.log(firstName);
-console.log(lastName);
-console.log(city);
-console.log(bio);
+// const { email, firstName, lastName, city, bio } = user;
+// console.log(email);
+// console.log(firstName);
+// console.log(lastName);
+// console.log(city);
+// console.log(bio);
 
 // If you want to rename the variable something different than the object property name.
 const { born: birthYear } = user;
@@ -63,3 +63,34 @@ console.log(herBorn);
 console.log(herDied);
 
 // DESTRUCTURING PARAMETERS
+
+// Old example
+// function fullName(user) {
+//   return `${user.firstName} ${user.lastName}`;
+// }
+
+// New example with destructuring
+// function fullName(user) {
+//   const { firstName, lastName } = user;
+//   return `${firstName} ${lastName}`;
+// }
+// console.log(fullName);
+// BUT if you do not use anything else in the user object then you can destructure as you enter the function like below.
+function fullName({ firstName, lastName = "Marshall" }) {
+  return `${firstName} ${lastName}`;
+}
+console.log(fullName);
+
+// Parameter destructuring can be used with arrays, too.
+// You have a movie array with names, dates and scores.
+// movies.filter((movie) => movie.score >= 90);
+// Shortens to:
+// movies.filter(({ score }) => score >= 90);
+// Or if you want multiple keys:
+// movies.map((movie) => {
+//   return `${movie.title} (${movie.year}) is rated ${movie.score}`;
+// });
+// Can be destructured on the way in:
+// movies.map(({title, score, year}) => {
+//   return `${title} (${year}) is rated ${score}`;
+// });
