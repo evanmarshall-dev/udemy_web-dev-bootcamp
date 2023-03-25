@@ -57,3 +57,23 @@ for (const link of links) {
   // print out href property of the selected Elements
   console.log(link.href);
 }
+
+// ??? 2. MANIPULATING ELEMENTS
+// *** INNER TEXT
+console.log(document.querySelector("p").innerText);
+// This innerText can be changed.
+// console.log((document.querySelector("p").innerHTML = "lololololololololol"));
+// *** TEXT CONTENT
+// Differs from innerText due to providing everything inside the HTML tag and innerText will only show what is visible. For example, if something has display set to "none" it will NOT show up using innerText.
+// If you were using innerText to add italics to an h1 for example it would display the <i>heading</i> as well. Therefore we use innerHTML as below.
+// *** INNER HTML
+// innerHTML selects the HTML markup as well.
+console.log(document.querySelector("p").innerHTML);
+// Example of updating the HTML.
+console.log(
+  (document.querySelector("h1").innerHTML = "<i>HOLY Shit! I Changed!</i>"),
+);
+// You can also ADD to an element.
+console.log(
+  (document.querySelector("h1").innerHTML += " Give me a Coke <sup>TM</sup>"),
+);
