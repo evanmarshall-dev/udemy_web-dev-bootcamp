@@ -77,3 +77,53 @@ console.log(
 console.log(
   (document.querySelector("h1").innerHTML += " Give me a Coke <sup>TM</sup>"),
 );
+
+// *** ATTRIBUTES
+// For example the type of an input is an attribute or the id or src or title, etc.
+// You can change the id attribute.
+console.log((document.querySelector("#banner").id = "whoops"));
+console.log((document.querySelector("#whoops").id = "banner"));
+
+// You can also access attributes with "getAttribute" "setAttribute" METHODS.
+const firstLink = document.querySelector("a");
+console.log(firstLink.href);
+// Can also be done by.
+console.log(firstLink.getAttribute("href"));
+// However the getAttribute above is different as you are pulling the data between the quotes of the href versus pulling directly from anchor tag will give the computed value.
+// Check for if there is a class or title.
+console.log(firstLink.getAttribute("class"));
+console.log(firstLink.getAttribute("title"));
+// setAttribute allows us to make a change to the second argument passed in.
+console.log(firstLink.setAttribute("href", "https://www.google.com"));
+
+// save input with type of text to variable.
+const input = document.querySelector("input[type='text']");
+console.log((input.type = "password"));
+console.log((input.type = "color"));
+console.log(input.setAttribute("type", "text"));
+
+// *** MANIPULATE STYLES
+const headingOne = document.querySelector("h1");
+// .style will return a large object of styles in camel case and the style object does not include current styles. It only shows inline styles which is not recommended.
+console.log(headingOne.style);
+// We can assign a value to styles, such as color.
+console.log((headingOne.style.color = "purple"));
+console.log((headingOne.style.fontSize = "5rem"));
+// The above changes styles inline, but there is a better way which is to add a class and then manipulate that via JS.
+
+// Change color of all links.
+const allLinks = document.querySelectorAll("a");
+for (const link of allLinks) {
+  link.style.color = "red";
+  link.style.textDecorationColor = "purple";
+  link.style.textDecorationStyle = "wavy";
+}
+
+// Now we still cannot grab the computed styles via JavaScript, but this can be done by working on the window object as below.
+// Use the headingOne variable from above and it will output a css declaration.
+console.log(window.getComputedStyle(headingOne));
+// For specific styles.
+console.log(window.getComputedStyle(headingOne).color);
+console.log(window.getComputedStyle(headingOne).fontSize);
+console.log(window.getComputedStyle(headingOne).fontFamily);
+console.log(window.getComputedStyle(headingOne).margin);
