@@ -127,3 +127,37 @@ console.log(window.getComputedStyle(headingOne).color);
 console.log(window.getComputedStyle(headingOne).fontSize);
 console.log(window.getComputedStyle(headingOne).fontFamily);
 console.log(window.getComputedStyle(headingOne).margin);
+
+// *** MANIPULATE CLASSES
+const h2 = document.querySelector("h2");
+// You can do setAttribute, but that inlines styles and overrides anything new added.
+// It is better to use the CLASS LIST. Classlist is used to list out classes on an element, add and manipulate them. You do this by adding methods.
+// ADD
+console.log(h2.classList.add("purple"));
+// ADD
+console.log(h2.classList.add("border"));
+// REMOVE
+console.log(h2.classList.remove("border"));
+// console.log(h2.classList.contains("border"));
+// TOGGLE
+console.log(h2.classList.toggle("border"));
+
+// *** Traversing Relative Elements (I.E. Parent and Children)
+// So for example select the first bold element.
+const firstBold = document.querySelector("b");
+// And now I want to select parent element of first bold.
+console.log(firstBold.parentElement);
+// I can do it again and again and again.
+console.log(firstBold.parentElement.parentElement.parentElement);
+// Each element only has one parent, but can have several children.
+const paragraph = firstBold.parentElement;
+// Now look at children.
+console.log(paragraph.children);
+// This spits back another HTML Collection, however this looks like an array, but it is not. It does have indices and can therefore be iterated.
+// Now working with SIBLINGS
+const squareImg = document.querySelector(".square");
+// nextsibling and previous sibling will return a NODE. Browsers will make whitespace/return a new text node like below.
+console.log(squareImg.nextSibling);
+console.log(squareImg.previousSibling);
+// nextElementSibling will ignore whitespace and provide the next element.
+console.log(squareImg.nextElementSibling);
