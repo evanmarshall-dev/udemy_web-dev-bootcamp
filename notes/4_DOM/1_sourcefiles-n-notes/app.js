@@ -161,3 +161,65 @@ console.log(squareImg.nextSibling);
 console.log(squareImg.previousSibling);
 // nextElementSibling will ignore whitespace and provide the next element.
 console.log(squareImg.nextElementSibling);
+
+// *** CREATING ELEMENTS (APPEND & APPENDCHILD)
+// Below makes an empty image tag. You need to have a src and tell the image element where to go.
+console.log(document.createElement("img"));
+// Add source
+const newImg = document.createElement("img");
+console.log(
+  (newImg.src =
+    "https://storage.googleapis.com/stateless-campfire-pictures/2019/11/eabbbcfe-1573601826c48pl.jpg"),
+);
+// Now tell it where on the page to go. We will do this by appending as the last child of the body.
+console.log(document.body.appendChild(newImg));
+// Now add an existing class to it to fit within page better.
+console.log(newImg.classList.add("square"));
+
+// EXAMPLE 2
+const newH3 = document.createElement("h3");
+// Use inner text
+console.log((newH3.innerText = "I am a new heading!!"));
+// Append to body
+console.log(document.body.appendChild(newH3));
+
+// Generally the above is the process to follow. Create element, edit it and then append.
+
+// A newer process is to use just "append." It is more flexible, allows us to append more than one element/nodes/string
+// Adding text/string example
+const p = document.querySelector("p");
+p.append("I am a new paragraph!!!");
+// Append more than one thing by using a comma.
+p.append(" I am a new paragraph.", " So am I!!");
+// You can also prepend instead of append (insert at last child).
+// Create the element
+const newB = document.createElement("b");
+// Append to add content to element. Can also do this with inner text.
+newB.append("Ciao");
+console.log(p.prepend(newB));
+
+// You can also use insert adjacent element to insert element next to another.
+// Create new element.
+const newH2 = document.createElement("h2");
+// Add text to the new h2.
+newH2.innerText = "Whoa! Look at me!";
+// Select the element to insert adjacent to.
+const h1 = document.querySelector("h1");
+// Now do the insert. First you add the method onto the element you will be insert at, in parenthesis you tell it where to insert compared to selected element and then what you will be inserting.
+console.log(h1.insertAdjacentElement("afterend", newH2));
+// So, if you look at the code you will see that the new element is added adjacent to the h1 and not within it as it would happen with append.
+// There is also an "after" option, which pretty much does what we just did above. Also, "before," which is what it says it is.
+
+// *** REMOVING ELEMENTS (REMOVECHILD & REMOVE)
+// Removechild requires us to call upon the parent element in order to remove it's child.
+// EXAMPLE
+// Select the element
+const firstLi = document.querySelector("li");
+// Select parent element.
+const ul = firstLi.parentElement;
+// Now we can remove child.
+ul.removeChild(firstLi);
+
+// Better option is to use the "remove" method so you can remove the element you are selecting.
+const imageOne = document.querySelector("img");
+imageOne.remove();
