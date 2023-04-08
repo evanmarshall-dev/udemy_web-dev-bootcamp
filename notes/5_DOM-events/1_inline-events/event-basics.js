@@ -24,3 +24,13 @@ btn.onmouseenter = scream;
 // btn.onclick = alert("This will run right away.");
 
 // * #3. addEventListener.
+// Create variable for the button selection.
+const btn3 = document.querySelector("#v3");
+// The add event listener takes two parameters, the event and an anonymous function.
+// btn3.addEventListener('click', function() {})
+// OR an arrow function.
+btn3.addEventListener("mouseup", () => {
+  alert("CLICKED");
+});
+// You can also use a named function instead of anonymous.
+// Add Event Listener is the most ideal option because:
