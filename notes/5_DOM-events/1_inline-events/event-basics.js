@@ -34,3 +34,22 @@ btn3.addEventListener("mouseup", () => {
 });
 // You can also use a named function instead of anonymous.
 // Add Event Listener is the most ideal option because:
+// 1ST REASON.
+function twist() {
+  console.log("TWIST");
+}
+function shout() {
+  console.log("SHOUT");
+}
+const tasBtn = document.querySelector("#tas");
+// Below only shout will be called because we have overwritten the property of twist with the second assignment of shout.
+// This shows that we cannot have two different callback functions for the same event.
+// tasBtn.onclick = twist;
+// tasBtn.onclick = shout;
+// Trying again with event listener. We see that it allows us to have as many callbacks as we want.
+tasBtn.addEventListener("click", twist, { once: true });
+tasBtn.addEventListener("click", shout);
+
+// 2ND REASON.
+// We are able to add OPTIONS to the event listener.
+// See above "once" property.
