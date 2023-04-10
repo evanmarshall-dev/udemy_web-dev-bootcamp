@@ -1,3 +1,13 @@
+// To generate a random number we need to generate three random numbers from 0 to 255 to make the RGB.
+// To create the color is enough logic to warrant a separate function.
+const makeRandomColor = () => {
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  // In function we return the below.
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
 // Select the button.
 const button = document.querySelector("button");
 // Assign click event listener and console log to make sure it is working.
@@ -20,13 +30,3 @@ button.addEventListener("click", () => {
   // Overwrite what is currently in the h1.
   h1.innerText = newColor;
 });
-
-// To generate a random number we need to generate three random numbers from 0 to 255 to make the RGB.
-// To create the color is enough logic to warrant a separate function.
-const makeRandomColor = () => {
-  const r = Math.floor(Math.random() * 255);
-  const g = Math.floor(Math.random() * 255);
-  const b = Math.floor(Math.random() * 255);
-  // In function we return the below.
-  return `rgb(${r}, ${g}, ${b})`;
-};
