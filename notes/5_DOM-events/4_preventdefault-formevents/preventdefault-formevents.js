@@ -37,5 +37,5 @@ secondInput.addEventListener("input", function (e) {
   // So every time the event listener or input is updated we take the value of the input and set the h1 or heading to that value.
   heading.innerText = secondInput.value;
   // print to console e so we see the event firing.
-  // console.log(e);
+  console.log(e);
 });
