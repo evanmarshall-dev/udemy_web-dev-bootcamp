@@ -18,3 +18,24 @@ form.addEventListener("submit", function (e) {
   // Reset the form input back to empty.
   input.value = "";
 });
+
+// INPUT & CHANGE EVENTS
+// ? NOTE: Unlike keypress, these events only fire when the value of input changes so something like hitting a shift key in the input would have no effect.
+// Having something happen with inputs without the need of a submit.
+// Example: Change Event.
+// Change event only fires when you type in the input then blur or click outside of it.
+const secondInput = document.querySelector("#inputTwo");
+const heading = document.querySelector("#headingTwo");
+// secondInput.addEventListener("change", function (e) {
+//   console.log("WHAAAAAAAA???!");
+// });
+
+// Example: Input Event.
+// Fires any time the input changes. Not needing a blur.
+secondInput.addEventListener("input", function (e) {
+  // console.log("INPUT");
+  // So every time the event listener or input is updated we take the value of the input and set the h1 or heading to that value.
+  heading.innerText = secondInput.value;
+  // print to console e so we see the event firing.
+  // console.log(e);
+});

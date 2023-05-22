@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling</title>
+
+    <style>
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Event Bubbling</h1>
+
+    <!-- Each element has its own event listener for a click to alert. When you click the button it will run the alert for the button as well as each element the button is nested within. -->
+    <!-- This is called event bubbling. The event for the button is "bubbling" up from the button. -->
+    <!-- Sometimes you might want this functionality, but usually it is not desirable. -->
+    <section onclick="alert('section clicked')">
+      <p onclick="alert('paragraph clicked')">
+        I am a paragraph:
+        <button onclick="alert('button clicked')">Click Me</button>
+      </p>
+    </section>
+
+    <div id="container">
+      Click to hide
+      <button id="changeColor">Change colour</button>
+    </div>
+
+    <script src="./event-bubbling.js"></script>
+  </body>
+</html>
