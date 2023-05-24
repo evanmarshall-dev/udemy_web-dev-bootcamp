@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+  </head>
+  <body>
+    <h1>Event Delegation</h1>
+
+    <form action="/dogs" id="tweetForm">
+      <input type="text" name="username" placeholder="username" />
+      <input type="text" name="tweet" placeholder="tweet" />
+      <button>Post Tweet</button>
+    </form>
+
+    <h2>Tweets:</h2>
+    <ul id="tweets">
+      <li>I am LI!!</li>
+      <li>I am LI!!</li>
+      <p>Sample of an element not to be added and is not an li element.</p>
+    </ul>
+
+    <script src="./event-delegation.js"></script>
+  </body>
+</html>
