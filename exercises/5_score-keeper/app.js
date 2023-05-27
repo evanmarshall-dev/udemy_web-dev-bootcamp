@@ -6,7 +6,7 @@ const p2Display = document.querySelector("#p2Display");
 // Keep track of whatever the initial score of p1 is.
 let p1Score = 0;
 let p2Score = 0;
-// Create variable for the score played to.
+// Create variable for the score played to as the winning score.
 const winScore = 5;
 // In order to stop logic as soon as either player reaches winScore or whether we are playing the game or not (yes or no) a.k.a. a boolean.
 let isGameOver = false;
