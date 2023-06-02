@@ -1,9 +1,9 @@
-const multiply = (x, y) => x * y;
-const square = (x) => multiply(x, x);
-const isRightTriangle = (a, b, c) => {
-  return square(a) + square(b) === square(c);
-};
-isRightTriangle(3, 4, 5);
+// const multiply = (x, y) => x * y;
+// const square = (x) => multiply(x, x);
+// const isRightTriangle = (a, b, c) => {
+//   return square(a) + square(b) === square(c);
+// };
+// isRightTriangle(3, 4, 5);
 
 // 1. In the callstack the first this that needs to be evaluated is square of a or 3.
 // 2. The square of 3 returns multiply 3 * 3, which is added to callstack.
