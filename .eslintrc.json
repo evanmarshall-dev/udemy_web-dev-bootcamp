@@ -16,6 +16,7 @@
     "radix": "off",
     "no-restricted-syntax": "off",
     "func-names": "off",
-    "guard-for-in": "off"
+    "guard-for-in": "off",
+    "no-param-reassign": "off"
   }
 }
