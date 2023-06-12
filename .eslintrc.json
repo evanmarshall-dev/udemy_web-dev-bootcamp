@@ -19,6 +19,7 @@
     "guard-for-in": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": "off",
-    "prefer-promise-reject-errors": "off"
+    "prefer-promise-reject-errors": "off",
+    "no-undef": "off"
   }
 }
