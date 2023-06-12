@@ -9,11 +9,13 @@ form.addEventListener("submit", async function (e) {
   // Let's use the elements property found above.
   // ? console.log(form.elements.query.value);
   // Save the above to a variable.
+  // @ts-ignore
   const searchTerm = form.elements.query.value;
 
   // Now call axios on the API.
   // We want q or the query to be whatever the user types in the form input.
   // We want to await the axios so we need to make the function in event listener async.
+  // @ts-ignore
   const res = await axios.get(
     `https://api.tvmaze.com/search/shows?q=${searchTerm}`,
   );
@@ -24,6 +26,7 @@ form.addEventListener("submit", async function (e) {
   // First create an image element.
   const img = document.createElement("IMG");
   // Provide the image src from the API data.
+  // @ts-ignore
   img.src = res.data[0].show.image.medium;
   // Append new image element with src to body.
   document.body.append(img);
