@@ -26,12 +26,62 @@ function makeColor(r, g, b) {
 const firstColor = makeColor(35, 255, 150);
 firstColor.hex();
 firstColor.rgb();
-console.log(firstColor);
+// ? console.log(firstColor);
 
 const black = makeColor(0, 0, 0);
 black.rgb();
 black.hex();
-console.log(black);
+// ? console.log(black);
 
 // * CONSTRUCTOR FUNCTION
-// Usually the function is labelled with a capital letter to indicate that it is not a regular function, but rather one which creates an object.
+// * The secret to the constructor function is the "new" keyword or operator. You call "new" before the function call makes it behave differently.
+// * Calling new before the function call creates a blank/plain JS object, links or sets the constructor of "this" object to another object, passes the newly created object (step 1) as "this" context and returns "this" if the function does not return its own object. All of the above is similar to what we did above in the factory function but does it implicitly (behind the scenes).
+// ! DO NOT USE ARROW FUNCTIONS WITH KEYWORD THIS.
+// Usually the function is labelled with a capital letter to indicate that it is not a regular function, but rather one which creates an object (A constructor function).
+// DEFINE RECIPE FOR COLOR
+function Color(r, g, b) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+  // printing "this" refers to the window. This is because within this function (not inside any object) "this" refers to the global scope which is the window.
+  // ? console.log(this);
+}
+// What happens when you execute Color()? "undefined" prints.
+// Using "new" creates a new object in Color(), which we do not tell it to do, and also adds a constructor to the prototype and sets that constructor to Color().
+// * Therefore with constructors we can add methods NOT to the individual objects BUT to the prototype.
+// ? console.log(new Color(255, 40, 100));
+
+// Define the method on the prototype outside the constructor function.
+// Similar to what we did before (i.e. String or Array.prototype.pop = function(){}) to override it.
+// EVERYTHING WILL BE DEFINED ON THIS ONE PROTOTYPE AS RGB AND HEX AND WE ONLY NEED ONE COPY OF THOSE METHODS.
+Color.prototype.rgb = function () {
+  const { r, g, b } = this;
+  return `rgb(${r}. ${g}, ${b})`;
+};
+
+Color.prototype.hex = function () {
+  const { r, g, b } = this;
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+};
+
+// Add a new method in.
+// Add parameter of the alpha channel with a default value of 1 (a=1).
+Color.prototype.rgba = function (a = 1.0) {
+  const { r, g, b } = this;
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+};
+
+// Now calling it with "new."
+const color1 = new Color(40, 255, 60);
+// ? console.log(color1);
+const color2 = new Color(0, 0, 0);
+// ? console.log(color2);
+
+// ? console.log(color1.hex()); // #28ff3c
+console.log(color2.hex()); // #000000
+// ? console.log(color1.hex === color2.hex); // Returns "true."
+
+document.body.style.backgroundColor = color1.rgb();
+document.body.style.backgroundColor = color1.rgba(0.4);
+
+// * It is a bit messy having the object color defined then three different methods for rgb, hex and rgba so the CLASS keyword will fix this syntax.
