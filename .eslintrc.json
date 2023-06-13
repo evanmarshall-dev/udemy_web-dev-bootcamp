@@ -20,6 +20,8 @@
     "no-param-reassign": "off",
     "no-unused-expressions": "off",
     "prefer-promise-reject-errors": "off",
-    "no-undef": "off"
+    "no-undef": "off",
+    "no-shadow": "off",
+    "no-bitwise": "off"
   }
 }
