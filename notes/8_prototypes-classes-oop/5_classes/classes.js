@@ -16,6 +16,8 @@ class Color {
     this.b = b;
     this.name = name;
     // the "name" or "r" in this.name doesn't have to be the same and can be something like this.colorName, but typically it is kept the same.
+    // You can call a function within the constructor.
+    this.calcHSL();
   }
 
   // With classes we do not have to do Color.prototype... like we did in the constructor lecture. Instead we can add a random method (i.e. greet(){}). We use the shorthand syntax for defining a method, which can also be used in objects.
@@ -46,12 +48,80 @@ class Color {
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   }
 
+  // Now let's make a function for hsl.
+  hsl() {
+    // Destructure h, s and l from this.
+    const { h, s, l } = this;
+    return `hsl(${h}, ${s}%, ${l}%)`;
+  }
+
+  // Let's do one for full saturation, which basically will be the same as hsl(), but set saturation to 100%.
+  fullSat() {
+    // Only need h and l.
+    const { h, l } = this;
+    return `hsl(${h}, 100%, ${l}%)`;
+  }
+
+  // Now we can define another function that determines opposite color when we consider the h value of hsl is in a color wheel of 360 degrees.
+  opposite() {
+    const { h, s, l } = this;
+    // Make a new h by adding 180 to the value unless we are above 180 degrees then we will use modulo of 360 to bring us back to 0.
+    const newHue = (h + 180) % 360;
+    return `hsl(${newHue}, ${s}%, ${l}%)`;
+  }
+
   // Now add the rgba method.
   rgba(a = 1.0) {
     // ? const { r, g, b } = this;
     // ? return `rgba(${r}, ${g}, ${b}, ${a})`;
     // * Same refactor with innerRGB can be done within this method.
     return `rgba(${this.innerRGB()}, ${a})`;
+  }
+
+  // * CONTINUING CLASSES EXAMPLES
+  // calcHSL() turns RGB color into HSL.
+  calcHSL() {
+    let { r, g, b } = this;
+    // Make r, g, and b fractions of 1.
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    // Find greatest and smallest channel values.
+    const cmin = Math.min(r, g, b);
+    const cmax = Math.max(r, g, b);
+    const delta = cmax - cmin;
+    let h = 0;
+    let s = 0;
+    let l = 0;
+
+    if (delta === 0) h = 0;
+    else if (cmax === r)
+      // Red is max.
+      h = ((g - b) / delta) % 6;
+    else if (cmax === g)
+      // Green is max.
+      h = (b - r) / delta + 2;
+    // Blue is max.
+    else h = (r - g) / delta + 4;
+
+    h = Math.round(h * 60);
+
+    // Make negative hues positive behind 360 degrees.
+    if (h < 0) h += 360;
+    // Calculate lightness.
+    l = (cmax + cmin) / 2;
+
+    // Calculate saturation.
+    s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+    // Multiply l and s by 100.
+    s = +(s * 100).toFixed(1);
+    l = +(l * 100).toFixed(1);
+    // Assign h, s, and l to the object with below code.
+    this.h = h;
+    this.s = s;
+    this.l = l;
   }
 }
 
@@ -62,6 +132,9 @@ class Color {
 const red = new Color(255, 67, 89, "tomato");
 // Define a new color.
 const white = new Color(255, 255, 255, "white");
+// Define a new color.
+const orange = new Color(230, 126, 34, "carrot");
+
 // Call the rgb method.
 console.log(red.rgb());
 // rgb(255, 67, 89)
@@ -89,3 +162,25 @@ console.log(red.hex === white.hex);
 // ? console.log(c2.greet());
 
 // * To recap: Add properties to the r, g, and b and assign to the Color object (NOT PROTOTYPE). Using Classes, when we create methods they will automatically be added to the prototype without having to call things such as Color.prototype.rgb = function(){...}. You can also keep all of the logic together inside the class. So, every color has this r, g, b and name and every color has the above four methods located on the prototype.
+
+// With HSL, the first value is 0 to 360 degrees around the color wheel, second value is saturation as a percentage and finally the third value is lightness as a percentage.
+// hsl(130, 50%, 80%)
+
+// Call calcHSL().
+console.log(white.calcHSL()); // Returns undefined however if we look at white it now has h, s and l as part of the Color object.
+console.log(white);
+// With the above hsl function and this.calcHSL() added to the constructor I can call white.hsl().
+console.log(white.hsl());
+// Let's try on another color.
+console.log(red.hsl());
+document.body.style.backgroundColor = red.hsl();
+
+// Let's test out the opposite method.
+console.log(red.opposite());
+document.body.style.backgroundColor = red.opposite();
+
+// Let's test out full saturation method.
+console.log(orange.hsl());
+document.body.style.backgroundColor = orange.hsl();
+console.log(orange.fullSat());
+document.body.style.backgroundColor = orange.fullSat();
