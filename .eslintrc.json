@@ -22,6 +22,8 @@
     "prefer-promise-reject-errors": "off",
     "no-undef": "off",
     "no-shadow": "off",
-    "no-bitwise": "off"
+    "no-bitwise": "off",
+    "max-classes-per-file": "off",
+    "class-methods-use-this": "off"
   }
 }
