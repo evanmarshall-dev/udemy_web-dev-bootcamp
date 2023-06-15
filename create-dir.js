@@ -1,6 +1,6 @@
 const fs = require("fs");
 // TODO: Change the "#_module-topic" to the numbered learning topic in sequence to the course (i.e. notes/6_node-lectures).
-const nodePath = "notes/10_new-topic";
+const nodePath = "notes/10_modules-npm";
 const folderName = process.argv[2] || "#_lecture-name";
 
 try {
