@@ -4,15 +4,15 @@
 echo '🏗️👷 Formatting and testing your project before committing'
 
 # Check Prettier standards
-yarn pretty:check ||
+npm run pretty:check ||
 (
   echo '🤢🤮🤢🤮 Your styling looks disgusting. 🤢🤮🤢🤮
-  Prettier Check Failed. Run yarn pretty:write, add changes and try commit again.';
+  Prettier Check Failed. Run npm run pretty:write, add changes and try commit again.';
   false;
 )
 
 # Check ESLint Standards
-yarn lint ||
+npm run lint ||
 (
   echo '😤🏀👋😤 Get that weak code out of here! 😤🏀👋😤 
   ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'

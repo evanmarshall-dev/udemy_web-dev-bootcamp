@@ -8,7 +8,7 @@
     "pretty:write": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "beast-mode": "yarn pretty:check && yarn lint",
+    "beast-mode": "npm run pretty:check && npm run lint",
     "prepare": "husky install"
   },
   "repository": {
