@@ -29,6 +29,8 @@
   "dependencies": {
     "colors": "^1.4.0",
     "figlet": "^1.6.0",
-    "give-me-a-joke": "^0.5.1"
+    "franc": "^5.0.0",
+    "give-me-a-joke": "^0.5.1",
+    "langs": "^2.0.0"
   }
 }
