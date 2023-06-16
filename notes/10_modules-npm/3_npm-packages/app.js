@@ -1,5 +1,6 @@
 const jokes = require("give-me-a-joke");
 const colors = require("colors");
+const figlet = require("figlet");
 
 // ? console.dir(jokes);
 console.log(colors);
@@ -9,4 +10,13 @@ console.log(colors);
 jokes.getRandomDadJoke(function (joke) {
   // We add .rainbow to the joke call in order to use the colors package
   console.log(joke.rainbow);
+});
+
+figlet("Hello Bitches!!", function (err, data) {
+  if (err) {
+    console.log("Something went wrong");
+    console.dir(err);
+    return;
+  }
+  console.log(data.brightRed);
 });
