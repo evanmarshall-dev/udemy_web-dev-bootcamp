@@ -1,7 +1,7 @@
 {
   "name": "web-dev-bootcamp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Course files for Colt Steele's Web Developer Bootcamp on Udemy",
   "main": "index.js",
   "scripts": {
     "pretty:check": "prettier --check .",
