@@ -1,5 +1,5 @@
-const jokes = require("give-me-a-joke");
-const colors = require("colors");
+// ? const jokes = require("give-me-a-joke");
+// ? const colors = require("colors");
 const figlet = require("figlet");
 
 // ? console.dir(jokes);

@@ -1,4 +1,4 @@
-const franc = require("franc");
+// ? const franc = require("franc");
 const langs = require("langs");
 // TODO: Un-comment when using. Had to comment out to pass linting. const colors = require("colors");
 
