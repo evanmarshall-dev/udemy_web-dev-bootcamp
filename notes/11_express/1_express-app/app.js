@@ -26,10 +26,16 @@ const app = express();
 // ? res.send("<h1>This is my webpage!</h1>");
 // ? });
 
+// We are now going to start using ROUTING. It is not specific to express and refers to taking incoming requests and path and matching to some code and response (i.e. path could be http://localhost:3000/search).
+// Below are example paths.
+// * /cats => 'meow'
+// * /dogs => 'woof'
+// * /
+
 // Let's add the home or ROOT route
 app.get("/", (req, res) => {
   // ? console.log("ROOT request!!");
-  res.send("This is my homepage!");
+  res.send("Welcome to the homepage!");
 });
 
 // One of apps methods is app.get(). This method expects two parameters: the path that we are matching and then a callback function which will run whenever a request comes in matching cats or the path.
@@ -45,18 +51,44 @@ app.get("/dogs", (req, res) => {
   res.send("woof");
 });
 
+// All the above direct path routes, but sometimes you will want to define generic patterns (i.e. /r/SOMETHINGHERE).
+// You define a variable for a path using a colon. Below is an example and it will match any string for subreddit as wel as anything using that pattern. Therefore /r/subreddit will work as well as /r/cats and /r/dogs.
+// If we want to access the /r/subreddit as a variable we utilize the REQ property, created by express called params.
+app.get("/r/:subreddit", (req, res) => {
+  // ? console.log(req.params); // Will output to the console { subreddit: "whatever path you add after /r/" }. So if I went to /r/cats the subreddit property will be assigned to cats (i.e. { subreddit: "cats" }).
+  // ? res.send("This is a subreddit!");
+  // You can access this through destructuring.
+  const { subreddit } = req.params;
+  res.send(`<h1>This is the subreddit for: ${subreddit}</h1>`);
+});
+
+// There can be more than one path parameter.
+app.get("/r/:subreddit/:postID", (req, res) => {
+  const { subreddit, postID } = req.params;
+  res.send(
+    `<h1>This is the subreddit for: ${subreddit}, with the post ID of: ${postID}</h1>`,
+  );
+});
+
+// When dealing with QUERY STRINGS, the req object has a property called query. Within that property we will find key value pairs based upon the query string.
+// Below will print out a blank object. The query object will contain whatever you add to the query string (i.e. http://localhost:3000/search?q=dog&color=green).
+app.get("/search", (req, res) => {
+  const { q } = req.query;
+  console.log(req.query);
+  // ? res.send("This is the search page!");
+  // * How to handle no query strings?
+  if (!q) {
+    res.send("Nothing found, if nothing searched.");
+  }
+  res.send(`<h1>Search results for: ${q}</h1>`);
+});
+
 // If you go to a path or route that doesn't exist, you will get a 404. We can create a generic response for this.
 // * Make sure you put * or 404 route in the last position because they are matched in the order they are listed. If this was positioned before any of the other routes, you would get a 404 when going to the routes after the * 404. This only applies to .get() requests.
 app.get("*", (req, res) => {
   // ? console.log("404 request!!");
   res.status(404).send("404 Path/Page Not Found");
 });
-
-// We are now going to start using ROUTING. It is not specific to express and refers to taking incoming requests and path and matching to some code and response (i.e. path could be http://localhost:3000/search).
-// Below are example paths.
-// * /cats => 'meow'
-// * /dogs => 'woof'
-// * /
 
 // We now need to listen for requests and then send a request to the server.
 // We are only using this locally so we are using the port 3000 and localhost. Right now we will get an error: Cannot GET /.
