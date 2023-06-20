@@ -21,7 +21,20 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-// Define a random route.
+// Let's test out looping.
+app.get("/cats", (req, res) => {
+  // Create array to pretend we are getting data from a database.
+  const cats = ["Blue", "Monty", "Rocket", "Stephanie", "Winston"];
+  res.render("cats", { cats });
+});
+
+// Create a route that is reddit-like.
+app.get("/r/:subreddit", (req, res) => {
+  const { subreddit } = req.params;
+  res.render("subreddit", { subreddit });
+});
+
+// Define a random route as well as test out conditionals.
 app.get("/rand", (req, res) => {
   const num = Math.floor(Math.random() * 10) + 1;
   // You can pass a second argument to render() method, which is an object.
