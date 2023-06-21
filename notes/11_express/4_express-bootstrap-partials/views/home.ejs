@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body>
+<%- include("partials/head") %>
+  <%- include("partials/navbar") %>
     <!-- Whatever is put in between the EJS <%=  %> tag is treated like JS -->
     <h1>The Home Page</h1>
     <h2><%= "Hello World".toUpperCase(); %></h2>
@@ -20,5 +14,4 @@
       adipisci nisi iste rem animi quas commodi, aliquid vero deserunt ad,
       consequatur quis? Rem porro quod, earum voluptas aliquid mollitia tenetur.
     </p>
-  </body>
-</html>
+  <%- include("partials/footer") %>

@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- name comes from the spread of data in the subreddit res.render(). See index.js. -->
-    <title><%= name %></title>
-    <!-- Now we will refer to the public folder static assets. -->
-    <!-- Instead of linking to a file we will be linking to the entire contents of that public directory. Since it is referenced in index.js we do not need to reference "/public/app.css". -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-  </head>
-  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
@@ -48,21 +34,3 @@
         </div>
       </div>
     </nav>
-
-    <div class="container">
-      <h1>Browsing the <%= name %> Subreddit</h1>
-      <h2><%= description %></h2>
-      <p><%= subscribers %> Total Subscribers</p>
-      <!-- Render all posts using a loop. -->
-      <hr />
-      <% for(let post of posts) { %>
-      <article>
-        <p><%= post.title %> - <b><%= post.author %></b></p>
-        <% if (post.img) { %>
-        <img src="<%= post.img %>" alt="<%= post.description %>" />
-        <% } %>
-      </article>
-      <% } %>
-    </div>
-  </body>
-</html>
