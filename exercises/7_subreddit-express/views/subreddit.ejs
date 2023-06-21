@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- name comes from the spread of data in the subreddit res.render(). See index.js. -->
+    <title><%= name %></title>
+  </head>
+  <body>
+    <h1>Browsing the <%= name %> Subreddit</h1>
+    <h2><%= description %></h2>
+    <p><%= subscribers %> Total Subscribers</p>
+    <!-- Render all posts using a loop. -->
+    <hr />
+    <% for(let post of posts) { %>
+    <article>
+      <p><%= post.title %> - <b><%= post.author %></b></p>
+      <% if (post.img) { %>
+      <img src="<%= post.img %>" alt="<%= post.description %>" />
+      <% } %>
+    </article>
+    <% } %>
+  </body>
+</html>
