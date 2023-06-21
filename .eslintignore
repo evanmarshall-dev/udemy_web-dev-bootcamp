@@ -5,3 +5,6 @@
 node_modules
 .yarnrc.yml
 yarn.lock
+bootstrap.min.css
+bootstrap.min.js
+jquery.min.js

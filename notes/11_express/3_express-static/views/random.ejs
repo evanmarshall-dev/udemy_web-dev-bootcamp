@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random</title>
+  </head>
+    <!-- It is better to limit the logic in the HTML file so a lot of this can be passed in from the index.js. -->
+    <!-- * 10 does up to number 10 and + 1 shifts it up one. -->
+    <!-- ? <h1>Your random number is: <%= Math.floor(Math.random() * 10) + 1 %></h1> -->
+    <h1>Your random number is: <%= num %></h1>
+    <!-- getting rid of the = in the ejs element allows us to add and render JS logic without it actually displaying to the page. -->
+    <!-- The following logic could also be done in index.js and passed in as another variable in addition to "num". -->
+    <% if (num % 2 === 0) { %>
+      <h2>That is an EVEN number!</h2>
+    <% } else { %>
+      <h2>That is an ODD number!</h2>
+    <% } %>
+    <!-- Could also do it as follows. The "?" means if the pre condition is met and ":" means otherwise (i.e. if/else). -->
+    <!-- This also allows us to add logic to be rendered inline. -->
+    <h3>That number is: <%= num%2===0 ? "EVEN" : "ODD" %></h3>
+  </body>
+</html>
