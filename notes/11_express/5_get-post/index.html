@@ -6,10 +6,21 @@
     <title>Get vs Post Requests</title>
   </head>
   <body>
+    <h1>GET vs POST Requests</h1>
+    <h2>GET</h2>
     <form action="/tacos" method="get">
       <input type="text" name="meat" />
       <input type="number" name="qty" />
       <button type="submit">Submit</button>
     </form>
+    <!-- * The query string for the GET request will show in the browser URL. It will show as tacos?meat=[what is entered in the text input]&qty=[what is entered in the number input]. GET request are used generally to receive info and NOT send data. -->
+
+    <h2>POST</h2>
+    <form action="/tacos" method="post">
+      <input type="text" name="meat" />
+      <input type="number" name="qty" />
+      <button type="submit">Submit</button>
+    </form>
+    <!-- * POST requests will not be included in the query string, but will show in the request BODY. Generally POST requests are used to SEND data. We can send data of any type (i.e. JSON) and we are not limited by amount of data since it is not in the URL. -->
   </body>
 </html>
