@@ -9,5 +9,6 @@
     <h1>Comment ID: <%= comment.id %></h1>
     <h2><%= comment.comment %> - <%= comment.username %></h2>
     <a href="/comments">Back to Comment List</a>
+    <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
   </body>
 </html>

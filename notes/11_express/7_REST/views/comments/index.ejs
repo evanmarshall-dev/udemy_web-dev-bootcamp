@@ -8,6 +8,8 @@
   </head>
   <body>
     <h1>Comments</h1>
+    <!-- We are not making IDs for the new comments created after the original 4. -->
+    <!-- * HTML forms can only send GET or POST requests, but in the UPDATE portion of CRUD we need to use a PATCH. We will have to fake it. -->
     <ul>
       <% for(let c of comments) { %>
       <li>

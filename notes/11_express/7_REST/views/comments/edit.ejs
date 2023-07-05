@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDIT</title>
+  </head>
+  <body>
+    <h1>EDIT</h1>
+    <!-- TODO: Remember we cannot use PATCH request so we will download package for method-override. -->
+    <!-- We then add on _method to the end of the action. -->
+    <form method="post" action="/comments/<%= comment.id %>?_method=PATCH">
+      <textarea name="comment" id="" cols="30" rows="10">
+      <%= comment.comment %>
+    </textarea
+      >
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>
