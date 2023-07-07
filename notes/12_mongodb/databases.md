@@ -36,3 +36,4 @@
   4. `brew install mongodb-community@6.0`
   5. To start service: `brew services start mongodb-community@6.0`
   6. To stop service: `brew services stop mongodb-community@6.0`
+  7. Use: `mongosh` instead of `mongo` for commands.
