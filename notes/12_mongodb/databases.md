@@ -37,3 +37,23 @@
   5. To start service: `brew services start mongodb-community@6.0`
   6. To stop service: `brew services stop mongodb-community@6.0`
   7. Use: `mongosh` instead of `mongo` for commands.
+
+## The Mongo Shell
+
+- This is a REPL like node, except more than just a playground. We use it to create databases, edit databases, change security and permissions.
+- To start it, you need to start the mongo service then type: `mongosh`.
+- This is a JavaScript shell so you can type JS code and use JS syntax.
+- Common commands:
+  - `CMD + K`: To clear the shell.
+  - `help`: For help on using the shell.
+  - `db`: To bring up the database you are currently using.
+  - `show dbs`: To show a list of databases.
+- How you create a database:
+  - `use <databaseName>`.
+
+## INSERTING Data in Mongo
+
+- MongoDB accepts data in the form of _**JSON**_ and _**BSON**_.
+- Since JSON is text based, parsing it can be slow. It is also not easy to compress. It also does not support a lot of data types (Only string, boolean, number and array).
+- Binary JSON (BSON) is better. It is a more compact version of JSON (basically JSON compressed into a representation of binary). Looking at it you see it takes up more characters, but in MEMORY it takes up a lot less space.
+- BSON supports data types: String, boolean, number(integer, float, long, decimal128), array, date and RAW binary.
