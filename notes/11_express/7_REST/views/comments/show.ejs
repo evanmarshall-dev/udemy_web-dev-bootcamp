@@ -10,5 +10,9 @@
     <h2><%= comment.comment %> - <%= comment.username %></h2>
     <a href="/comments">Back to Comment List</a>
     <a href="/comments/<%= comment.id %>/edit">Edit Comment</a>
+    <!-- In form action we are using method override and specifying DELETE. -->
+    <form action="/comments/<%= comment.id %>?_method=DELETE" method="post">
+      <button>Delete</button>
+    </form>
   </body>
 </html>

@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 
 // Now to fake comments using an array.
 // There is no database so we will also CREATE comments and push into this array.
-const comments = [
+let comments = [
   {
     // id: 1,
     id: uuid(),
@@ -109,6 +109,20 @@ app.patch("/comments/:id", (req, res) => {
   // Update comment property to be whatever was in the req.body.comment above.
   foundComment.comment = newCommentText;
   // We do not want respond with content from a patch route similar to a post route. We want to redirect to the index or /comments.
+  res.redirect("/comments");
+});
+
+// * This is the DELETE portion of CRUD.
+app.delete("/comments/:id", (req, res) => {
+  // We want to lookup by the id and remove the entire comment (newCommentText from above).
+  const { id } = req.params;
+  // ? const foundComment = comments.find((c) => c.id === id);
+  // Now we want to remove the foundComment from the comments array. This can be done by using the array method filter.
+  // Filter is a boolean (true / false) and whichever items return true will be added to the filter.
+  // We want every element that does NOT have the above ID.
+  // * It is better not to mutate the original array so we will create a new array with all the comments that do not have the ID. Below returns a new array.
+  comments = comments.filter((c) => c.id !== id);
+  // After deleting the comment we want to redirect to the index or /comments.
   res.redirect("/comments");
 });
 
