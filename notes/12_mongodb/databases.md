@@ -44,16 +44,25 @@
 - To start it, you need to start the mongo service then type: `mongosh`.
 - This is a JavaScript shell so you can type JS code and use JS syntax.
 - Common commands:
-  - `CMD + K`: To clear the shell.
+  - `CMD + k`: To clear the shell.
   - `help`: For help on using the shell.
   - `db`: To bring up the database you are currently using.
   - `show dbs`: To show a list of databases.
+  - `show collections`: To show a list of collections.
 - How you create a database:
   - `use <databaseName>`.
-
-## INSERTING Data in Mongo
-
 - MongoDB accepts data in the form of _**JSON**_ and _**BSON**_.
 - Since JSON is text based, parsing it can be slow. It is also not easy to compress. It also does not support a lot of data types (Only string, boolean, number and array).
 - Binary JSON (BSON) is better. It is a more compact version of JSON (basically JSON compressed into a representation of binary). Looking at it you see it takes up more characters, but in MEMORY it takes up a lot less space.
 - BSON supports data types: String, boolean, number(integer, float, long, decimal128), array, date and RAW binary.
+
+## INSERTING Data in Mongo
+
+- You insert into a collection, which is a grouping of data in a database.
+- There are three different ways to insert. If the collection does not exist it will be created:
+  - `db.collection.insertOne()`: Pass in one object to be passed into collection.
+    - For example: `db.dogs.insertOne({name: "Charlie", age: 3, breed: "corgi", catFriendly: true})`: creates new collection called dogs.
+    - And to view dogs collection: `db.dogs.find()`.
+    - MongoDB then creates a property **_\_id_**, which is a primary key which is unique for each object in a collection.
+  - `db.collection.insertMany()`: Expects an array to insert multiple values.
+    - For example: `db.dogs.insertMany([{name: "Wyatt", breed: "Golden", age: 14, catFriendly: false}, {name: "Tommy", breed: "Chihuahua", age: 2, catFriendly: true}])`.
