@@ -56,13 +56,43 @@
 - Binary JSON (BSON) is better. It is a more compact version of JSON (basically JSON compressed into a representation of binary). Looking at it you see it takes up more characters, but in MEMORY it takes up a lot less space.
 - BSON supports data types: String, boolean, number(integer, float, long, decimal128), array, date and RAW binary.
 
-## INSERTING Data in Mongo
+## INSERTING with Mongo
 
 - You insert into a collection, which is a grouping of data in a database.
 - There are three different ways to insert. If the collection does not exist it will be created:
-  - `db.collection.insertOne()`: Pass in one object to be passed into collection.
-    - For example: `db.dogs.insertOne({name: "Charlie", age: 3, breed: "corgi", catFriendly: true})`: creates new collection called dogs.
-    - And to view dogs collection: `db.dogs.find()`.
-    - MongoDB then creates a property **_\_id_**, which is a primary key which is unique for each object in a collection.
-  - `db.collection.insertMany()`: Expects an array to insert multiple values.
+  - `db.collection.insertOne()`: Inserts a single document into a
+    collection. - For example: `db.dogs.insertOne({name: "Charlie", age: 3, breed: "corgi", catFriendly: true})`: creates new collection called dogs. - And to view dogs collection: `db.dogs.find()`. - MongoDB then creates a property **_\_id_**, which is a primary key which is unique for each document in a collection.
+  - `db.collection.insertMany()`: Inserts multiple documents into a collection. Expects an array.
     - For example: `db.dogs.insertMany([{name: "Wyatt", breed: "Golden", age: 14, catFriendly: false}, {name: "Tommy", breed: "Chihuahua", age: 2, catFriendly: true}])`.
+
+## FINDING with Mongo
+
+- `db.collection.find()` will return every element of every _**document**_ in a _**collection**_.
+  - You can pass in curly braces (Or the optional _**query**_) to find something specific like all dogs with the breed of corgi (Note: case sensitive). You can also pass in multiple queries.
+    - For example: `db.dogs.find({breed: "corgi", catFriendly: true})`
+    - If you want to only find one use: `db.dogs.findOne()`.
+    - findOne returns the document whereas find returns the _**cursor**_ to the selected documents (i.e. A pointer or reference to the result). This is because sometimes there might be thousands of results and instead of returning all of them it returns a cursor which we can iterate over or print it out.
+
+## UPDATING with Mongo
+
+- First you find what you will be updating and then specifying how you want to update it.
+- The different update methods:
+  - `db.collection.updateOne(<filter>, <update>, <options>)`: Updates at most a single document that match a specified filter even though multiple documents may match the specified filter.
+    - For example: `db.dogs.updateOne({name: "Charlie"}, {$set: {name: "Eric", age: 7}})`: You have to pass in two arguments (1. The argument to find, 2. Special operator preceded by $ (i.e. $set, which either adds or replaces a field in a document)).
+    - If you $set a field not currently in a document, it will be added in.
+  - `db.collection.updateMany(<filter>, <update>, <options>)`: Update all documents that match a specified filter.
+    - For example: `db.dogs.updateMany({catFriendly: false}, {$set: {isAvailable: true}})`
+  - `db.collection.replaceOne(<filter>, <update>, <options>)`.
+    - Replaces at most a single document that match a specified filter even though multiple documents may match the specified filter as well as retains the same document ID.
+- Another special operator besides $set is $currentDate, which sets some value in the document to the current date. You can have multiple special operators in an update.
+  - For example: `db.cats.updateOne({age: 2}, {$set: {age: 3}, $currentDate: {lastChanged: true}})`. The "lastChanged" value can be labelled whatever you want.
+
+## DELETING with Mongo
+
+- The methods are:
+  - `db.collection.deleteMany()`: Delete at most a single document that match a specified filter even though multiple documents may match the specified filter.
+    - For example: `db.dogs.deleteMany({isAvailable: true})`.
+    - You can also delete everything in a collection: `db.dogs.deleteMany({})`.
+  - `db.collection.deleteOne()`: Delete all documents that match a specified filter.
+    - For example: `db.cats.deleteOne({name: "Sally"})`.
+  - `db.collection.remove()`: Delete a single document or all documents that match a specified filter.
