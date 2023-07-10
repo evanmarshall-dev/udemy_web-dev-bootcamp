@@ -96,3 +96,24 @@
   - `db.collection.deleteOne()`: Delete all documents that match a specified filter.
     - For example: `db.cats.deleteOne({name: "Sally"})`.
   - `db.collection.remove()`: Delete a single document or all documents that match a specified filter.
+
+## Additional Mongo Operators
+
+### Expanding on FINDING with Mongo
+
+- values which are _**nested**_ in the top level of a document:
+  - For example: `db.dogs.find({"personality.childFriendly": true})`. Or a combination: `db.dogs.find({"personality.childFriendly": true, size: "M"})`.
+
+### Query Operators
+
+- **_Comparison_** operators
+  - greater than (\$gt), equal to (\$eq), greater than or equal (\$gte), less than (\$lt), less than or equal (\$lte), in (\$in), etc. You can also _**combine**_ several of the above operators.
+    - For example: `db.dogs.find({age: {$gt: 3}})` to find all dogs with age greater than three.
+    - Another example: `db.dogs.find({breed: {$in: ["Mutt", "Corgi"]}})` to find documents which have the breed in an array of Mutt or Corgi.
+- _**Logical**_ operators
+  - and (\$and), or (\$or), etc.
+    - For example: `db.dogs.find({$or: [{"personality.catFriendly": {true}}, {age: {$lte: 2}}]})`
+- **_Geospatial_** operators (Used with GeoJSON)
+  - near (\$near), geoWithin (\$geoWithin), etc.
+- _**Array**_ operators
+  - size (\$size), all (\$all), etc.
