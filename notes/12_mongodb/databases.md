@@ -112,7 +112,7 @@
     - Another example: `db.dogs.find({breed: {$in: ["Mutt", "Corgi"]}})` to find documents which have the breed in an array of Mutt or Corgi.
 - _**Logical**_ operators
   - and (\$and), or (\$or), etc.
-    - For example: `db.dogs.find({$or: [{"personality.catFriendly": {true}}, {age: {$lte: 2}}]})`
+    - For example: `db.dogs.find({$or: [{"personality.catFriendly": true}, {age: {$lte: 2}}]})`.
 - **_Geospatial_** operators (Used with GeoJSON)
   - near (\$near), geoWithin (\$geoWithin), etc.
 - _**Array**_ operators
