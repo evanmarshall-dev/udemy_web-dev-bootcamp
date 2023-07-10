@@ -38,3 +38,11 @@ to suppress this warning.
 - SOLUTION:
   - Instead of using .load index.js inside of the node shell, use the command:
   - `node -i -e "$(< index.js)"` in the system terminal (outside of the node shell, just be sure that you first change directories into the folder containing the index.js file). This will load the file and start the node shell with this one command instead, and then it should work. Be sure to type out the command exactly as shown above.
+
+### Models
+
+- Are essentially JS classes that we make using Mongoose which represent info in some collection in Mongo. Models have access to several **_methods_**. For each collection we work with in Mongo, we will have to define a model. Firstly, to define a model we need to define a **_schema_**, which is a mapping of different collection keys from mongo to different types in JS.
+- See index.js for more details on the code.
+- Now we run: `node` then `.load index.js` and we can access amadeus from index.js.
+- If we run: `mongosh`, `use movieApp` and then `db.movies.find()` we will see nothing has been created yet in mongo, but we do now have access to amadeus object. If we want to save it to the database: `amadeus.save()`. Confirm with: `db.movies.find()`.
+- If you want to update the data (i.e. score), then you would run in the JS side (node): `amadeus.score = 9.5`, run: `amadeus.save()` (THIS IS THE FIRST mongoose model METHOD we have used). Then in the mongo side, when you run: `db.movies.find()` you will see the updated score value.
