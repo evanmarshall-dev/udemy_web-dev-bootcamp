@@ -32,6 +32,7 @@
     "figlet": "^1.6.0",
     "langs": "^2.0.0",
     "method-override": "^3.0.0",
+    "mongoose": "^7.3.2",
     "uuid": "^9.0.0"
   }
 }

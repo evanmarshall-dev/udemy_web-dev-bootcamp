@@ -26,3 +26,15 @@ to suppress this warning.
 ```
 
 - If you get the above error: make it disappear by adding the mentioned mongoose.set('strictQuery', true); line above the mongoose.connect line in your code.
+
+## Connecting Mongoose to Mongo
+
+[Mongoose Website](https://mongoosejs.com/).
+
+- First you download the mongoose npm package: `npm i mongoose`.
+
+### Node .load index.js Error
+
+- SOLUTION:
+  - Instead of using .load index.js inside of the node shell, use the command:
+  - `node -i -e "$(< index.js)"` in the system terminal (outside of the node shell, just be sure that you first change directories into the folder containing the index.js file). This will load the file and start the node shell with this one command instead, and then it should work. Be sure to type out the command exactly as shown above.
