@@ -30,3 +30,78 @@ For adding highlights to text.
 > [!CAUTION]
 > Sample text to be included in the note.
 -->
+
+## Section: Intermediate CSS
+
+### Module: Combining CSS Selectors
+
+**_Group_**
+
+Grouping selectors applies the same styles to _all_ elements within the group.
+
+```css
+.selector1,
+.selector2 {
+  color: blueviolet;
+}
+```
+
+**_Child_**
+
+Using the greater than symbol will select a _child_ of a selector. The left side of the symbol is the parent and the right side of the symbol is the child.
+
+```css
+.parent-selector > .child-selector {
+  color: firebrick;
+}
+```
+
+**_Descendant_**
+
+When you have two selectors the first one is the _ancestor_ and the second one is the _descendant_. They style will be applied to the descendant only if it has an ancestor specified. The difference between descendant and child selection is that the descendant does not have to be a child of the ancestor (direct descendant), but rather it can be many levels deep.
+
+```css
+.ancestor-selector .descendant-selector {
+  color: brown;
+}
+```
+
+**_Chaining_**
+
+Apply styles to the instances where _all_ of the selectors are true. There are no spaces or punctuations between the selectors. If one of the selectors is an element that has to go _first_.
+
+```css
+h1#title.big {
+  color: seagreen;
+}
+```
+
+**_Combining Combiners_**
+
+You can combine any of the above combiners. For example, ancestor/descendant with chain.
+
+```css
+.ancestor-selector h1#header {
+  font-size: 2rem;
+}
+```
+
+### Module: CSS Positioning
+
+Position is outside and separate from margin in the box model.
+
+**_Static Positioning_**:
+
+This is the _default_ positioning of elements. Each element flows as they would in HTML. You can set the position to _static_, but it is not necessary.
+
+**_Relative Positioning_**
+
+Positioned relative to its _default_ position.
+
+**_Absolute Positioning_**
+
+Positioned relative to its _nearest positioned ancestor_ (Ancestor with position set to relative) or top left corner of _webpage_ (If no positioned ancestor). It also takes the element outside of default flow (Default z-index of 0) and places it _above_ default elements.
+
+**_Fixed Positioning_**
+
+Positioned to the top left corner of the _browser_. Stays in the same location even when the user scrolls.
