@@ -105,3 +105,53 @@ Positioned relative to its _nearest positioned ancestor_ (Ancestor with position
 **_Fixed Positioning_**
 
 Positioned to the top left corner of the _browser_. Stays in the same location even when the user scrolls.
+
+## Section: Advanced CSS
+
+### Module: CSS Display
+
+**_Inline_**
+
+Cannot control height and width and only occupies width of the content.
+
+**_Block_**
+
+Takes up entire full width and will not share the same row with another element. We can control its height and width.
+
+**_Inline Block_**
+
+We can set its height and width, but it only takes up width on a row for its content (Can position multiple elements on the same row). It combines properties of both block and inline.
+
+### Module: CSS Float
+
+Allows us to _wrap_ content around an element. For example, if we have an image and text and make the image `float: left` then the text will wrap around the image. This takes the image out of the normal HTML flow and makes it float around the text.
+
+If we have, for example, an image and two different paragraphs (One is a footer) and we want only the first paragraph to wrap around the image and have the footer on the bottom then we use the `clear` property. Setting the clear to the footer makes it ignore any floating styles and it goes into the normal HTML flow.
+
+```html
+<style>
+  img {
+    float: left;
+  }
+
+  footer {
+    clear: left;
+  }
+</style>
+
+<img src="/images/sample.png" />
+<p>
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+  when an unknown printer took a galley of type and scrambled it to make a type
+  specimen book.
+</p>
+<footer>Copyright evanmarshall.dev All rights reserved</footer>
+```
+
+If there are two or more elements floating above the footer (One floating left and one right) then we would need to set the footer to `clear: both` in order to achieve the same results.
+
+> [!TIP]
+> There are better ways to achieve complex layouts in CSS now instead of _float_ and _clear_. Most will now use **CSS Grid** and/or **CSS Flexbox**.
+
+## Section: Flexbox
