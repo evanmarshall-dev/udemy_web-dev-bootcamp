@@ -155,3 +155,76 @@ If there are two or more elements floating above the footer (One floating left a
 > There are better ways to achieve complex layouts in CSS now instead of _float_ and _clear_. Most will now use **CSS Grid** and/or **CSS Flexbox**.
 
 ## Section: Flexbox
+
+Float is mainly used now for floating an image within some text. For overall _layout_ of a web page one commonly used _display_ property is _flex_.
+
+When you set a container to a display of flex it no longer follows the rules of the other display properties (i.e. inline-block, inline, and block). The flexbox takes over and controls how the _flex items_ are laid out.
+
+The width of each flex item is normally based on the content size.
+
+### Module: Flex Direction
+
+Flex direction defaults to `row`. This is what creates the inline flow of elements in a row (x-axis). This is the _main-axis_ and when flex direction is row the main axis is the _horizontal_ from left to right.
+
+There is also a _cross-axis_, which is perpendicular to the main-axis.
+
+When we change the flex direction to `column` we change the main-axis to vertical or top to bottom. This also changes the cross-axis to horizontal. Also when setting flex direction to column the flex items will take up the full width of the container. In order to take up only the content width we would set the flex container to `inline-flex`.
+
+When you set the `flex-basis` it changes the _width_ of the flex items for flex row and it changes the _height_ of the flex items for flex column. So with flex basis you are stretching flex items along the main-axis.
+
+> [!TIP]
+> The flex basis is set on the _flex items_ and not the flex container.
+
+```html
+<style>
+  .container {
+    color: white;
+    border: 5px solid gold;
+    display: inline-flex;
+    flex-direction: column;
+
+    > * {
+      flex-basis: 100px;
+    }
+  }
+
+  .red {
+    background-color: red;
+  }
+  .green {
+    background-color: green;
+  }
+  .blue {
+    background-color: blue;
+  }
+  .yellow {
+    background-color: yellow;
+  }
+  .purple {
+    background-color: purple;
+  }
+  .orange {
+    background-color: orange;
+  }
+  .pink {
+    background-color: pink;
+  }
+  .brown {
+    background-color: brown;
+  }
+</style>
+
+<div class="container">
+  <div class="red"></div>
+  <div class="green"></div>
+  <div class="blue"></div>
+  <div class="yellow"></div>
+  <div class="purple"></div>
+  <div class="orange"></div>
+  <div class="pink"></div>
+  <div class="brown"></div>
+</div>
+```
+
+> [!TIP]
+> In order to select all children elements we would use the chile selector (`>`) followed by the universal selector (`*`).
