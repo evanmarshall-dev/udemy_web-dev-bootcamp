@@ -156,6 +156,12 @@ If there are two or more elements floating above the footer (One floating left a
 
 ## Section: Flexbox
 
+> [!IMPORTANT]
+>
+> [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+>
+> [Flexbox Froggy](https://appbrewery.github.io/flexboxfroggy/)
+
 Float is mainly used now for floating an image within some text. For overall _layout_ of a web page one commonly used _display_ property is _flex_.
 
 When you set a container to a display of flex it no longer follows the rules of the other display properties (i.e. inline-block, inline, and block). The flexbox takes over and controls how the _flex items_ are laid out.
@@ -228,3 +234,88 @@ When you set the `flex-basis` it changes the _width_ of the flex items for flex 
 
 > [!TIP]
 > In order to select all children elements we would use the chile selector (`>`) followed by the universal selector (`*`).
+
+### Module: Flex Layout
+
+**_Flex Order_**
+
+By default items have an order of `0`. This means that they follow how they are ordered in HTML. The number set in order has the largest order number at the end of the flex container or furthest to the right. The order value is set on the _children_ of the flex container or the flex items.
+
+**_Flex Wrap_**
+
+This matters when you run out of space horizontally. The default behaviour is `flex-wrap: nowrap`, which means as new items get added to the flex container they simply get pushed off the page. If you want flex items to wrap to a new line when space runs out you would set this property to `wrap`. This is set on the _parent_ or the flex container.
+
+**_Justify Content_**
+
+This property is set on the flex container. It sets the _distribution_ of the of items on the main-axis. The default is `flex-start` (Bunched up at the start of the axis).
+
+**_Align Items_**
+
+This is the position of the flex items along the cross-axis. The default is set to `flex-start` and is set on the flex container. Unless there is a height set on the flex container you will not see any differences when this property is set.
+
+> [!TIP]
+> You can also set alignment on a flex item itself by using the `align-self` property.
+
+**_Align Content_**
+
+Similar to align content, but it _only_ works when you have the flex wrap set to wrap. This determines how the flex items are aligned when they wrap to a new line.
+
+### Module: Flex Sizing
+
+Flexbox uses an algorithm to determine how flex items will shrink or grow by defaults.
+
+It looks at (Order of priority):
+
+1. Min/Max Width
+2. Flex Basis
+3. Width (Or height on flex column)
+4. Content Width
+
+The _minimum_ content width would be the width of the content that is wrapped (The longest word in the case of a paragraph). So basically as the screen shrinks the content will shrink until we hit the minimum content width. Once we hit the minimum content width the content will start getting pushed off the page and will no longer shrink. This is the default behaviour if none of the above 1-3 are set.
+
+**_If Width is Set_**
+
+For example, if each of the flex items has a static width set to 100px and there are 4 items then the minimum content width will be 400px before shrinking starts. Once we hit a width of 400px the flexbox will start shrinking the flex items dynamically until the same minimum content width above is met.
+
+**_If Flex Basis is Set_**
+
+Width will be ignored. If, for example, the flex basis is 200px for 4 flex items then the minimum content width is 800px before shrinking starts.
+
+**_If Min/Max Width is Set_**
+
+There is a _default_ max width set, which is all of the content lined up occupying one line. The default min width is determined by the longest word (The width of said word).
+
+Even if you set a max-width on the flex items then that will be respected even if a flex basis which is larger than the max-width is set. Max width determines the maximum width a flex item is allowed to _grow_ to.
+
+> [!TIP]
+> If the max-width is larger than the flex basis then the flex basis will be used. The max-width property is only used when it is smaller than the flex-basis.
+> If the min-width is larger than the flex basis then the min-width will be used.
+
+If the max-width determines how much flex items can _grow_ to then the min-width determines how small a flex item can _shrink_ to.
+
+**_Flex Grow and Flex Shrink_**
+
+If we only have flex basis set and no `flex-grow` or `flex-shrink` then no shrinking or growing will occur.
+
+If we set `flex-grow` to `1` and keep `flex-shrink` at `0` then the items will grow until we reach 100% of width on the main-axis. It will start at the `flex-basis` amount.
+
+If we set `flex-shrink` to `1` and keep `flex-grow` at `0` then the items will not grow. They will shrink to the minimum content width set by `flex-basis`.
+
+> [!TIP]
+> The default behaviour in a flexbox is to allow items to shrink, but not grow (`flex-grow: 0` and `flex-shrink: 1`).
+> The default `flex-basis` is `auto`. So it will look at the content in each flex item and give more basis to the items with more content and less basis to the items with less content. You can simply set flex basis to 0 if you do not want this.
+
+When grow _and_ shrink are set to 1, the flex basis is essentially ignored and the items try to grow to take up as much width as possible and shrink to the smallest width possible (Grow to the max width and shrink to the min width described above).
+
+**_Shorthand_**
+
+Basis, grow and shrink can be written in shorthand `(flex: 1 1 0)`:
+
+1. Grow
+2. Shrink
+3. Basis
+
+> [!TIP]
+> The above can be written even shorter as `flex: 1`.
+
+## Section: Grid
