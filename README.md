@@ -319,3 +319,101 @@ Basis, grow and shrink can be written in shorthand `(flex: 1 1 0)`:
 > The above can be written even shorter as `flex: 1`.
 
 ## Section: Grid
+
+> [!IMPORTANT]
+>
+> [Grid Sizing](https://appbrewery.github.io/grid-sizing/)
+
+Generally, flexbox is good for one dimensional alignment whereas grid is good for two dimensional, but they can be used in combination.
+
+Grids strength is when we shrink a layout it will maintain its alignment and gaps, whereas with flexbox this is very difficult to achieve because it tries to expand and shrink content to fit on screen.
+
+The default behaviour of a grid is to take up the full width, but only enough height to display content.
+
+Example grid layout:
+
+```html
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</div>
+```
+
+### Module: Grid Sizing
+
+How to size our columns and rows.
+
+You can use static sizing on `grid-template-rows` and `grid-template-columns`, but they won't be responsive. Instead it might be good to use `rem` units since it is relative to the browser default sizes.
+
+There is a shorthand for this where we define both rows and columns: `grid-template: 100px 200px / 400px 800px`. Rows are defined first then columns.
+
+You can also use the `auto` keyword to provide responsiveness. The following allows the 2nd column to take up the remaining space in the browser. For the row set to `auto` it will try to fit to the size of the _content_.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-rows: 100px auto;
+  grid-template-columns: 200px auto;
+}
+```
+
+**_The minmax Property_**
+
+Sometimes you want to define how the grid is responsive especially on the horizontal. We can do this using the `minmax` property. The first value is the minimum width of the column and the second value is the maximum width.
+
+For the example below, when we have enough space we can go all the way up to 800px for the second column and all the way down to 400px for the second column width.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-rows: 200px 400px;
+  grid-template-columns: 200px minmax(400px, 800px);
+}
+```
+
+**_The Repeat Property_**
+
+Instead of writing 1fr 8 times when we want 8 columns of equal width we can use the `repeat` property. We would then write `repeat(8, 1fr)`. The _first_ value is how many times to repeat and the _second_ value is the width.
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/* OR */
+
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+}
+```
+
+**_Excess or Not Enough Grid Items_**
+
+When we have _less_ grid items than what is defined in the grid template then it will simply wrap the extra grid items to a new line and leave the remaining slots empty.
+
+If you do not define enough rows and columns in the grid template (More grid items than defined in the grid) then the added grid item will get an _auto_ height (Fit to the content) and _match_ any existing column width.
+
+**_Grid Auto_**
+
+If you have some code that will create more containers in the future then you can use the `grid-auto-rows` or `grid-auto-columns`. These properties will define the width or height of potential grid items.
+
+> [!TIP]
+> If you define a grid in your CSS and you select the grid in the Chrome Developer Tools (CDT) then you can click the grid button and see more guides related to CSS grid.
+> Clicking _layout_ will allow more fine-tuned control over this.
+
+### Module: Grid Placement
