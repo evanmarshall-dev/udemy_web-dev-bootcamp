@@ -323,6 +323,8 @@ Basis, grow and shrink can be written in shorthand `(flex: 1 1 0)`:
 > [!IMPORTANT]
 >
 > [Grid Sizing](https://appbrewery.github.io/grid-sizing/)
+>
+> [Grid Garden](https://appbrewery.github.io/gridgarden/)
 
 Generally, flexbox is good for one dimensional alignment whereas grid is good for two dimensional, but they can be used in combination.
 
@@ -417,3 +419,85 @@ If you have some code that will create more containers in the future then you ca
 > Clicking _layout_ will allow more fine-tuned control over this.
 
 ### Module: Grid Placement
+
+**_Nomenclature for Grids_**
+
+- Grid container.
+- Grid items: The children of the grid container.
+- Tracks: Made up of grid rows and grid columns. Sized with `grid-template-rows` and `grid-template-columns`.
+- Cells: Intersections of the row tracks and column tracks. Multiple cells can be used to create a grid item.
+- Grid lines: Lines which separate the tracks. The grid lines are controlled with the `gap` property.
+
+When you use `grid-column` and set it to `span 2` for example, it will make the grid item stretch across two columns.
+
+The grid column property is shorthand for `grid-column-start` and `grid-column-end`. If you set grid column start to 2 it will move the item over a cell and if you set grid column end to 3 it will span two cells.
+
+You can also use _negative_ numbers for the grid column start and end. For example using `-1` will end at the _far right_ line for grid column end and `1` will start at the _far left_ line for grid column start. This is useful if you are not sure where in the grid the item should be or if you are dynamically creating grid items.
+
+Using `auto` for grid column start or end will place the grid item where it initially is set in the HTML.
+
+> [!TIP]
+> It is recommended to stick to using `-1` only for `grid-column-start` and `grid-column-end` and positive numbers for anything else.
+
+All of the above principles work the same way with `grid-row` (Or `grid-row-start` and `grid-row-end`).
+
+There is also a property called `order`. By default all items in a grid have an order of `0`. If you change the order for an item to `1` or whichever item has the highest order number in the grid will be placed _last_ (Considering the direction left to right and top to bottom).
+
+See below example for the three ways to position `.astronaut`. Keep in mind that if you use `grid-area` then you need to have every item use grid area.
+
+```html
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1.5fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cowboy {
+    grid-column: span 2;
+    background-color: cyan;
+  }
+
+  /* .astronaut {
+    grid-column: span 2;
+    background-color: green;
+    order: 1;
+  } */
+
+  /* Can also be written as. */
+  /* .astronaut {
+    background-color: green;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  } */
+
+  /* Can also be written shorthand. */
+  .astronaut {
+    background-color: orange;
+    /* row-start / column-start / row-end / column-end */
+    grid-area: 2 / 1 / 3 / 3;
+  }
+
+  .book {
+    grid-row: span 2;
+    background-color: purple;
+  }
+</style>
+
+<div class="grid-container">
+  <div class="grid-item cowboy">🤠</div>
+  <div class="grid-item astronaut">👨‍🚀</div>
+  <div class="grid-item book">📖</div>
+</div>
+```
+
+One of the main differences between grid and flexbox is that grid allows you to _overlay_ items. If you are using `background-color` it is good to set the color with some transparency to demonstrate this.
