@@ -501,3 +501,67 @@ See below example for the three ways to position `.astronaut`. Keep in mind that
 ```
 
 One of the main differences between grid and flexbox is that grid allows you to _overlay_ items. If you are using `background-color` it is good to set the color with some transparency to demonstrate this.
+
+## Section: Web Design
+
+### Module: Colour Theory
+
+> [!IMPORTANT]
+>
+> [Colour Palettes](https://colorhunt.co/)
+
+The art and science of creating a colour palette for a website.
+
+Be aware of the mood of the primary colour in your palette.
+
+1. **Red**: Love, energy, and intensity.
+2. **Yellow**: Joy, intellect, and attention.
+3. **Green**: Freshness, safety, and growth.
+4. **Blue**: Stability, trust, and serenity.
+5. **Purple**: Royalty, wealth, and femininity.
+
+**_Analogous Colours_**
+
+Colours right next to each other on the colour wheel. They are harmonious, look great together and good for things such as navigation, body, and logo/background. Not as good at making things stand out.
+
+**_Complementary Colours_**
+
+Better for making things stand out. These colours are found on the opposite side of the colour wheel. You do not want to style text and text background with it since it can be jarring to the eyes. Best for things such as logos, icons, and anything you want to stand out.
+
+### Module: Typography
+
+There are two main families of fonts: **serif** and **sans-serif**. These two families are broken down into sub-classes below.
+
+You can tell how _modern_ a font is by the amount of exaggeration between the thinnest and thickest parts of the font.
+
+1. **Serif**: Traditional, stable, respectable.
+2. **Sans-Serif**: Sensible, simple, and straightforward.
+3. **Script**: Personal, creative, and elegant.
+4. **Display**: Friendly, loud, and amusing.
+5. **Modern**: Stylish, chic, and smart.
+
+It is recommended to stick with only **two** fonts in a design. _Similar_ moods and and _era_ are also recommended.
+
+_Contrasted_ font families tend to be used with a serif for the header and sans-serif for the body. This can also be accomplished by contrasting _font weights_.
+
+### Module: User Interfaces (UI)
+
+Human eyes are drawn to _bolder_ and _larger_ items on a web page. We can use this to establish _hierarchy_. You want the most important info to be read first and be the most attractive to the human eye. High hierarchy also utilizes colours that make the design items _pop_.
+
+There is also an _optimal_ line length for text. Too _long_ is known to be hard to read. Too _short_ is known to be hard to read as well because it is a bit chopped up. Something around 40 - 60 characters per line is optimal.
+
+**_Alignment consistency_** is more appealing to the eyes. Reducing the number of alignment points can make things look more professional. Similar alignment makes items look more coherent and that they belong together.
+
+**_White space_** is the empty space around content and text. Too busy and lack of white space can make a design look cluttered and cheap.
+
+**_Audience_** is important when determining design. You would not design a children's website with the same design as a funeral home.
+
+### Module: User Experience (UX)
+
+There are five things to keep in mind for UX.
+
+1. **Simplicity**: Busy, cluttered and lack of white space is an overwhelming experience.
+2. **Consistency**: Design and functionality should be consistent. For example, changing something like a top navigation menu on different pages of a site can cause confusion for users.
+3. **Reading Patterns**: Most humans follow an _f-pattern_. Top fo screen to right and then down the left side of the page. Most important info/items should be on the left side of the page and top left such as a logo. A _z-pattern_ is also common, but usually for a site that is meant to be browsed faster (i.e. lots of videos).
+4. **All Platform Design**: Mobile responsive design which re-renders nicely when on a desktop or larger screen.
+5. **Dark Patterns**: Designs used only to benefit the company and not necessarily the users. It is considered deceitful. An example would be to highlight a button on a page that makes the company more money with "in-you-face" designs. Click bait is also another example.
