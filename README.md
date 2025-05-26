@@ -565,3 +565,40 @@ There are five things to keep in mind for UX.
 3. **Reading Patterns**: Most humans follow an _f-pattern_. Top fo screen to right and then down the left side of the page. Most important info/items should be on the left side of the page and top left such as a logo. A _z-pattern_ is also common, but usually for a site that is meant to be browsed faster (i.e. lots of videos).
 4. **All Platform Design**: Mobile responsive design which re-renders nicely when on a desktop or larger screen.
 5. **Dark Patterns**: Designs used only to benefit the company and not necessarily the users. It is considered deceitful. An example would be to highlight a button on a page that makes the company more money with "in-you-face" designs. Click bait is also another example.
+
+## Section: Intro to JavaScript (JS) ES6
+
+> [!IMPORTANT]
+>
+> [JavaScript MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+**_Chrome Developer Tools (CDT)_**
+
+Console is used to run line by line JS code, but if you want to write multiple lines and have them all run you can hold down the SHIFT key to write a new line.
+
+To run multiple lines of JS another way is to go to the CDT _sources_ tab and then _snippets_. You would add a JS file here and write your code.
+
+**_Keywords_**
+
+Example:
+
+- `alert("Hello");` where alert is the keyword or function. Creates a pop-up.
+- `typeof(23); // number` outputs the data type.
+- `prompt("What is your name?");` allows for user input on the pop-up.
+
+### Module: Data Types
+
+1. Strings
+2. Numbers
+3. Booleans (True/False)
+
+### Module: JS Variables
+
+Committing pieces of data to the _memory_ of the computer. You need to _define_ a variable with a name in order to commit or save it to memory and allow you to call its value later (i.e. `const myVar = "Name";`).
+
+You can save a prompt keyword to a variable which will save user input to the memory. For example:
+
+```javascript
+const myPrompt = prompt("What is your name?");
+alert("Welcome to the course, " + myPrompt + "!");
+```
